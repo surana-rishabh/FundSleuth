@@ -1,57 +1,69 @@
-# 📊 FundSleuth — AI Portfolio Intelligence & Mutual Fund X-Ray
+# FundSleuth — AI Portfolio Intelligence & Mutual Fund X-Ray
 
-[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
+[![Java 17](https://img.shields.io/badge/Java-17-orange.svg)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.4-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Build](https://github.com/surana-rishabh/FundSleuth/actions/workflows/maven.yml/badge.svg)](https://github.com/surana-rishabh/FundSleuth/actions/workflows/maven.yml)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-**FundSleuth** is a premium wealth management analytics platform designed to analyze mutual fund portfolios, uncover hidden stock-level overlap, detect toxic/loss-making underlying stock holdings, and eliminate 10-year distributor commission drag.
+FundSleuth is a wealth-management analytics platform for examining mutual-fund portfolios, revealing stock-level overlap, identifying concentration and portfolio-health risks, and estimating the long-term cost of distributor commissions.
 
----
+## What it does
 
-## ✨ Key Features
+- **Portfolio overlap analysis:** Maps schemes and underlying stocks to surface hidden diversification risk.
+- **Portfolio health scoring:** Produces a 0–100 score using overlap, expense ratios, and risky-stock exposure.
+- **Sector concentration alerts:** Flags portfolios where a sector exceeds the configured concentration threshold.
+- **Stock health inspection:** Groups holdings into profitable, stagnant/high-valuation, and loss-making/high-risk categories.
+- **Cost-drag estimation:** Compares the projected impact of regular-plan commissions over five- and ten-year periods.
+- **Actionable recommendations:** Generates prioritized restructuring steps.
+- **Portfolio input support:** Includes CAS PDF and portfolio screenshot workflows.
+- **Interactive reporting:** Provides charts, network visualizations, voice summaries, and PDF export in the browser UI.
 
-- **🔍 Portfolio Overlap Engine:** Graph-based node analytics (JGraphT) mapping mutual fund schemes to stock holdings to detect true diversification risk.
-- **🏥 Portfolio Health Scorecard:** Automated 0–100 portfolio health rating algorithm penalizing overlap percentage, expense ratios, and toxic stock exposure.
-- **⚠️ Sector Risk Concentration:** Alerts when any single sector exceeds 35% portfolio concentration.
-- **🛡️ Stock Profitability & Health Inspector:** Categorizes underlying stock holdings into 🟢 Profitable & Growing, 🟡 Stagnant / High Valuation, or 🔴 Loss-Making / High Risk.
-- **💰 5-Yr & 10-Yr Cost Drag Calculator:** Compounded interest math estimating returns lost to regular plan distributor commissions.
-- **📋 Step-by-Step Restructuring Action Plan:** Generates prioritized optimization steps to save fees and exit toxic assets.
-- **📄 CAS PDF & Screenshot Support:** Parses CAMS/KFintech PDFs and Groww/Zerodha Coin portfolio screenshots.
-- **🎨 Premium White Gradient UI:** Vis.js interactive network graph, Chart.js visualizations, voice summary player, and one-click PDF report export.
+## Technology
 
----
+- **Backend:** Java 17, Spring Boot 3.2.4, Apache PDFBox, and JGraphT
+- **Frontend:** HTML5, Bootstrap 5.3, custom CSS, Chart.js, Vis.js Network, Font Awesome, and Plus Jakarta Sans
+- **Build:** Apache Maven
+- **Delivery:** Spring Boot serves the packaged UI from `src/main/resources/static`
 
-## 🛠️ Tech Stack
+## Requirements
 
-- **Backend:** Java 21, Spring Boot 3.2.4, JGraphT (Graph Analytics), Apache PDFBox (PDF Text Extraction)
-- **Frontend:** HTML5, Bootstrap 5.3, Custom CSS Design System, Chart.js, Vis.js Network, FontAwesome 6, Plus Jakarta Sans
-- **Build System:** Apache Maven
+- JDK 17 or newer
+- Apache Maven 3.8 or newer
 
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- **JDK 17 or 21** installed
-- **Apache Maven 3.8+** installed
-
-### Run Locally
+## Run locally
 
 ```bash
-# Clone the repository
-git clone https://github.com/<your-username>/FundSleuth.git
+git clone https://github.com/surana-rishabh/FundSleuth.git
 cd FundSleuth
 
-# Build the project
+# Compile the application
 mvn clean compile
 
-# Start the Spring Boot Application
+# Run the application
 mvn spring-boot:run
 ```
 
-Open your browser at **`http://localhost:8080`**.
+Open [http://localhost:8080](http://localhost:8080) after the application starts.
 
----
+## Verify changes
 
-## 📜 License
+Run the test suite before opening a pull request:
+
+```bash
+mvn test
+```
+
+Every push and pull request also runs the Maven build through GitHub Actions.
+
+## Repository layout
+
+```text
+src/main/java/                 Spring Boot application code
+src/main/resources/static/     Packaged HTML, CSS, and JavaScript UI
+src/test/java/                 Automated tests
+pom.xml                        Maven build and dependency configuration
+```
+
+## License
+
 This project is licensed under the MIT License.
